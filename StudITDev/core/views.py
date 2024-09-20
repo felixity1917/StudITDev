@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from .models import ToDoItem
@@ -30,7 +30,20 @@ def todo_list(request):
             todo = form.save(commit=False)
             todo.user = request.user
             todo.save()
+            print(f"Saved ToDoItem: {todo.id}")
             return redirect('todo_list')
     else:
         form = ToDoItemForm()
     return render(request, 'todo_list.html', {'items': items, 'form': form})
+
+@login_required
+def delete_todo(request, pk):
+    # Get the todo item by its primary key (pk)
+    todo = get_object_or_404(ToDoItem, pk=pk)
+
+    # Ensure the current user is the one who created the todo item
+    if todo.user == request.user:
+        todo.delete()
+
+    # Redirect back to the todo list page after deletion
+    return redirect('todo_list')

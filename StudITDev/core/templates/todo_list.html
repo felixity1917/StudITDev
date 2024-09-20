@@ -7,7 +7,15 @@
 
 <ul>
   {% for item in items %}
-  <li>{{ item.task }} - {{ item.completed }}</li>
+  <li>
+    {{ item.task }} - {{ item.completed }}
+    {% if todo.id %}
+    <form action="{% url 'delete_todo' todo.id %}" method="post" style="display:inline;">
+      {% csrf_token %}
+      <button type="submit">Delete</button>
+    </form>
+    {% endif %}
+  </li>
   {% endfor %}
 </ul>
 <a href="{% url 'logout' %}">Logout</a>

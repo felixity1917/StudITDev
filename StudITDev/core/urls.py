@@ -11,4 +11,5 @@ urlpatterns = [
     path('home/', views.todo_list, name='todo_list'),
     # path('', views.home, name='home'),
     # path('todos/', views.todos, name='Todos')
+    path('delete/<int:pk>/', views.delete_todo, name='delete_todo'),
 ]
