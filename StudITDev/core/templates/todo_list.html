@@ -1,0 +1,13 @@
+<h2>Your To-Do List</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Task</button>
+</form>
+
+<ul>
+  {% for item in items %}
+  <li>{{ item.task }} - {{ item.completed }}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'logout' %}">Logout</a>
