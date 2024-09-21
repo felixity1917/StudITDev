@@ -27,8 +27,13 @@
                 <li><a href="#" class="menu-icon">&#9776;</a></li>
             </ul>
         </nav><!--End OF NavBar-->
-
       </div><!--End of Navigation_Bar-->
+      <!-- Here we define the content block for child templates to insert their content -->
+      <div class="content">
+        {% block content %}
+        <!-- Default content can go here, or leave empty for child templates to override -->
+        {% endblock %}
+      </div><!-- End of content -->
     </div>
   </div>
 </body>
