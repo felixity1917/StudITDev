@@ -5,7 +5,7 @@
 }
 
 body{
-  background-image: url(../assets/bg_image.jpg);
+  background-image: url(https://github.com/felixity1917/StudITDev/blob/main/StudITDev/core/static/assets/bg_image.jpg?raw=true);
     background-size: cover;
     background-color: #2b2b2b;
     color: white;
@@ -188,5 +188,5 @@ body{
   top:10px;
   left:30px;
   font-family: "Figtree";
-  src: url(../assets/Figtree-Bold.ttf);
+  src: url(https://raw.githubusercontent.com/felixity1917/StudITDev/raw/refs/heads/main/StudITDev/core/static/assets/Figtree-Bold.ttf);
 }
